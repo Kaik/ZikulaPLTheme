@@ -23,7 +23,7 @@
                     {% if image is defined and image %}
                         <a class="navbar-brand" href="{% if titlelink %}{{ titlelink }}{% else %}#{% endif %}" title="{{ title }}"><img class="img-responsive" alt="" src="{{ image }}" /></a>
                     {% endif %}
-                    <a href="{% if titlelink %}{{ titlelink }}{% else %}#{% endif %}" class="navbar-brand" title="{{ title }}">{% if truncated %}{{ titletruncated }}{% else %}{{ title }}{% endif %}</a>
+                    <a href="{% if titlelink %}{{ titlelink }}{% else %}#{% endif %}" class="navbar-brand" title="{{ title }}">{#% if truncated %}{{ titletruncated }}{% else %#}{{ title }}{#% endif %#}</a>
                 </div>
                 <div class="collapse navbar-collapse" id="userheader-div">
                     {modulelinks modname=$modname type=$type menuclass='nav navbar-nav'}

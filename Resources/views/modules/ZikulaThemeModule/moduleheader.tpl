@@ -23,7 +23,7 @@
                     {if isset($image) && $image}
                         <a class="navbar-brand" href="{if $titlelink}{$titlelink}{else}#{/if}" title="{$title}"><img class="img-responsive" alt="" src="{$image}" /></a>
                     {/if}
-                    <a href="{if $titlelink}{$titlelink}{else}#{/if}" class="navbar-brand" title="{$title}">{if $truncated}{$titletruncated}{else}{$title}{/if}</a>
+                    <a href="{if $titlelink}{$titlelink}{else}#{/if}" class="navbar-brand" title="{$title}">{*if $truncated}{$titletruncated}{else*}{$title}{*/if*}</a>
                 </div>
                 <div class="collapse navbar-collapse" id="userheader-div">
                     {modulelinks modname=$modname type=$type menuclass='nav navbar-nav'}
