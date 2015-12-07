@@ -1,5 +1,5 @@
 {
-	"name" : "kaikmedia/pl-theme",
+	"name" : "zikulz/pl-theme",
 	"version" : "1.0.0",
 	"description" : "PL Theme based on Zikula Bootstrap theme",
 	"type" : "zikula-theme",
@@ -11,7 +11,7 @@
 	],
 	"autoload" : {
 		"psr-4" : {
-			"Kaikmedia\\PLTheme\\" : ""
+			"Zikula\\PLTheme\\" : ""
 		}
 	},
 	"require" : {
@@ -20,7 +20,7 @@
 	"extra" : {
 		"zikula" : {
 			"core-compatibility" : ">=1.4.1",
-			"class" : "Kaikmedia\\PLTheme\\KaikmediaPLTheme",
+			"class" : "Zikula\\PLTheme\\ZikulaPLTheme",
 			"displayname" : "PLTheme",
 			"capabilities" : {
 				"user" : true,
