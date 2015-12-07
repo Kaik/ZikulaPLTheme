@@ -2,7 +2,7 @@
 # ZikulaBootstrapTheme variables
 ##
 home:
-  default_value: 3col_w_centerblock
+  default_value: 3col_w_centerblock_home
   type: choice
   options:
     choices:
@@ -11,6 +11,7 @@ home:
       2col_w_centerblock: Two columns with centerblock
       3col: Three columns
       3col_w_centerblock: Three columns with centerblock
+      3col_w_centerblock_home: Three columns with centerblock home
 master:
   default_value: 2col
   type: choice
@@ -21,6 +22,7 @@ master:
       2col_w_centerblock: Two columns with centerblock
       3col: Three columns
       3col_w_centerblock: Three columns with centerblock
+      3col_w_centerblock_home: Three columns with centerblock home
 admin:
   default_value: 1col
   type: choice
@@ -31,3 +33,4 @@ admin:
       2col_w_centerblock: Two columns with centerblock
       3col: Three columns
       3col_w_centerblock: Three columns with centerblock
+      3col_w_centerblock_home: Three columns with centerblock home
