@@ -10,7 +10,7 @@
     {if $title}<h2>{$title|safetext}</h2>{/if}
 
 {elseif $type != 'admin'}
-    <div class="navbar navbar-inverse navbar-noborder">
+    <div class="navbar navbar-default navbar-noborder">
         <div class="navbar-inner navbar-bgimages">
             <div class="container-fluid">
                 <div class="navbar-header">
