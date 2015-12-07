@@ -26,7 +26,6 @@
                     <a href="{if $titlelink}{$titlelink}{else}#{/if}" class="navbar-brand" title="{$title}">{if $truncated}{$titletruncated}{else}{$title}{/if}</a>
                 </div>
                 <div class="collapse navbar-collapse" id="userheader-div">
-                    {if $truncated}<h4>{$title}</h4>{/if}
                     {modulelinks modname=$modname type=$type menuclass='nav navbar-nav'}
                 </div>
             </div>
