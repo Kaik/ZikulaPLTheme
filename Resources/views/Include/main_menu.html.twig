@@ -68,6 +68,15 @@
             <button type="submit" class="btn btn-success">Sign in</button>
           </form>
         {% endif %}
+        <!-- if user loged in -->
+        <ul class="nav navbar-nav pull-right"> 
+        {% if isloggedin() %}     
+		{% include 'ZikulaPLTheme:StatusBar:user.status_bar.html.twig' %}
+		{% else %}
+            <li><a href="{{ path('zikulausersmodule_user_login') }}" title="{{ __('Sign in') }}">{{ __('Sign in') }}</a></li>        
+        {% endif %}
+        </ul>
+
         </div><!--/.navbar-collapse -->
       </div>
     </div>
