@@ -1,0 +1,5 @@
+services:
+    zikula_pl_theme.twig.pltheme_extension:
+        class: Zikula\PLTheme\Twig\PLThemeExtension
+        tags:
+            - { name: twig.extension }
