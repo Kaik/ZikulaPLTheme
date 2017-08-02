@@ -1,36 +1,164 @@
 ##
-# ZikulaBootstrapTheme variables
+# PLTheme variables
+#'Symfony\Component\Form\Extension\Core\Type\ChoiceType
 ##
-home:
-  default_value: 3col_w_centerblock_home
-  type: choice
+# master is Default
+master_layout: 
+  default_value: default
+  type: 'Symfony\Component\Form\Extension\Core\Type\ChoiceType'
   options:
+    choices_as_values: true
     choices:
-      1col: One column
-      2col: Two columns
-      2col_w_centerblock: Two columns with centerblock
-      3col: Three columns
-      3col_w_centerblock: Three columns with centerblock
-      3col_w_centerblock_home: Three columns with centerblock home
-master:
-  default_value: 2col
-  type: choice
+      'Default': default
+      'Top Navigation': layout-top-nav
+      'Boxed': layout-boxed
+      'Fixed': fixed
+      'Collapsed sidebar': sidebar-collapse
+      
+master_skin:
+  default_value: skin-blue
+  type: 'Symfony\Component\Form\Extension\Core\Type\ChoiceType'
   options:
+    choices_as_values: true
     choices:
-      1col: One column
-      2col: Two columns
-      2col_w_centerblock: Two columns with centerblock
-      3col: Three columns
-      3col_w_centerblock: Three columns with centerblock
-      3col_w_centerblock_home: Three columns with centerblock home
-admin:
-  default_value: 1col
-  type: choice
+      'Blue': skin-blue
+      'Blue light': skin-blue-light
+      'Yellow': skin-yellow
+      'Yellow light': skin-yellow-light
+      'Green': skin-green
+      'Green light': skin-green-light
+      'Purple': skin-purple
+      'Purple light': skin-purple-light     
+      'Red': skin-red
+      'Red light': skin-red-light
+      'Black': skin-black
+      'Black light': skin-black-light
+      
+master_body:
+  default_value: plain
+  type: 'Symfony\Component\Form\Extension\Core\Type\ChoiceType'
   options:
+    choices_as_values: true
     choices:
-      1col: One column
-      2col: Two columns
-      2col_w_centerblock: Two columns with centerblock
-      3col: Three columns
-      3col_w_centerblock: Three columns with centerblock
-      3col_w_centerblock_home: Three columns with centerblock home
+      'Plain': plain
+      
+home_layout:
+  default_value: zikula-www
+  type: 'Symfony\Component\Form\Extension\Core\Type\ChoiceType'
+  options:
+    choices_as_values: true
+    choices:
+      'Default': default
+      'Top Navigation': layout-top-nav
+      'Boxed': layout-boxed
+      'Fixed': fixed
+      'Collapsed sidebar': sidebar-collapse
+      'Plain': plain-page
+      'Home Plain': home-plain     
+      'Zikula www': zikula-www        
+      
+home_skin:
+  default_value: skin-blue
+  type: 'Symfony\Component\Form\Extension\Core\Type\ChoiceType'
+  options:
+    choices_as_values: true
+    choices:
+      'Blue': skin-blue
+      'Blue light': skin-blue-light
+      'Yellow': skin-yellow
+      'Yellow light': skin-yellow-light
+      'Green': skin-green
+      'Green light': skin-green-light
+      'Purple': skin-purple
+      'Purple light': skin-purple-light     
+      'Red': skin-red
+      'Red light': skin-red-light
+      'Black': skin-black
+      'Black light': skin-black-light 
+
+home_body:
+  default_value: home-plain
+  type: 'Symfony\Component\Form\Extension\Core\Type\ChoiceType'
+  options:
+    choices_as_values: true
+    choices:
+      'Plain': plain
+      'Home Plain': home-plain
+      'Zikula www': zikula-www
+
+admin_layout:
+  default_value: fixed
+  type: 'Symfony\Component\Form\Extension\Core\Type\ChoiceType'
+  options:
+    choices_as_values: true
+    choices:
+      'Default': default
+      'Top Navigation': layout-top-nav
+      'Boxed': layout-boxed
+      'Fixed': fixed
+      'Collapsed sidebar': sidebar-collapse
+      
+admin_skin:
+  default_value: skin-blue
+  type: 'Symfony\Component\Form\Extension\Core\Type\ChoiceType'
+  options:
+    choices_as_values: true
+    choices:
+      'Blue': skin-blue
+      'Blue light': skin-blue-light
+      'Yellow': skin-yellow
+      'Yellow light': skin-yellow-light
+      'Green': skin-green
+      'Green light': skin-green-light
+      'Purple': skin-purple
+      'Purple light': skin-purple-light     
+      'Red': skin-red
+      'Red light': skin-red-light
+      'Black': skin-black
+      'Black light': skin-black-light
+
+admin_body:
+  default_value: plain
+  type: 'Symfony\Component\Form\Extension\Core\Type\ChoiceType'
+  options:
+    choices_as_values: true
+    choices:
+      'Plain': plain
+      
+#master:
+#  default_value: masterlte
+#  type: choice
+#  options:
+#    choices:
+#      adminlte: masterlte
+#admin:
+#  default_value: adminlte
+#  type: choice
+#  options:
+#    choices:
+#      adminlte: adminlte
+#login:
+#  default_value: psmall
+#  type: choice
+#  options:
+#    choices:
+#      1col_login: One column login etc...
+#register:
+#  default_value: psmall
+#  type: choice
+#  options:
+#    choices:
+#      1col_login: One column login etc...      
+#account:
+#  default_value: pbigger
+#  type: choice
+#  options:
+#    choices:
+#      1col_login: One column login etc...
+#office:
+#  default_value: officelte
+#  type: choice
+#  options:
+#    choices:
+#      adminlte: adminlte
+

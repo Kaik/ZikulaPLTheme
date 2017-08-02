@@ -32,8 +32,6 @@ class PLThemeExtension extends \Twig_Extension
         return ['isloggedin' => new \Twig_Function_Method($this, 'isLoggedIn', array('is_safe' => array('html')))
         ];
     }
-    
-    
 
     /**
      * @param $string

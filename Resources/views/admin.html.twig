@@ -1,4 +1,51 @@
-{% include 'ZikulaPLTheme:Include:header.html.twig' %}
-{% include 'ZikulaPLTheme:Include:main_menu.html.twig' %}
-{% include "ZikulaPLTheme:Body:" ~ themevars.admin ~ ".html.twig" %}
-{% include 'ZikulaPLTheme:Include:footer.html.twig' %}
+{% extends "ZikulaPLTheme:Layout:" ~ themevars.admin_layout ~ ".html.twig" %}
+{#{% extends "ZikulaPLTheme:Layout:default.html.twig" %}#}
+{% block head %}
+    {{ parent() }}
+    <link href="{{ pageAddAsset('stylesheet', zasset("almasaeed2010/adminlte/dist/css/skins/#{themevars.admin_skin}.min.css"), 98)  }}" rel="stylesheet" type="text/css" />
+{% endblock %}
+{% block body %}
+    <body class="hold-transition {{ themevars.admin_skin }} {{ themevars.admin_layout }} sidebar-mini">
+    {% endblock %}
+    {% block status_bar %}
+        {{ adminMenu('categories') }}
+        <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+                {% include 'ZikulaPLTheme:StatusBar:admin.messages.html.twig' %}
+                {% include 'ZikulaPLTheme:StatusBar:admin.notifications.html.twig' %}
+                {% include 'ZikulaPLTheme:StatusBar:admin.tasks.html.twig' %}
+                {% include 'ZikulaPLTheme:StatusBar:admin.user.html.twig' %}
+                <!-- Control Sidebar Toggle Button -->
+                <li>
+                    <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+                </li>
+            </ul>
+        </div>
+        {{ parent() }}
+    {% endblock %}  
+    {% block sidebar_content %}
+        {% include 'ZikulaPLTheme:Sidebar:user.html.twig' %}
+        {% include 'ZikulaPLTheme:Sidebar:search.html.twig' %}
+        {{ adminPanelMenu() }}
+    {% endblock %}
+    {% block sidebar %}
+        {{ parent() }} 
+    {% endblock %}
+    {% block content %}
+        {{ parent() }}
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Main content -->
+            <section class="content">
+                {#                {{ dump() }}#}
+                {% include "ZikulaPLTheme:Body:" ~ themevars.admin_body ~ ".html.twig" %}
+                <!-- /.row (main row) -->
+            </section>
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+    {% endblock %}
+
+    {% block footer %}
+        {{ parent() }}
+    {% endblock %}

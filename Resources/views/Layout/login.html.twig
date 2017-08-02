@@ -1,0 +1,25 @@
+{% extends 'ZikulaPLTheme:Base:base.html.twig' %}
+{% block head %}
+    <link href="{{ pageAddAsset('stylesheet', zasset("@ZikulaPLTheme:adminlte/dist/css/skins/#{themevars.skin}.min.css"), 98)  }}" rel="stylesheet" type="text/css" />
+    <link href="{{ pageAddAsset('stylesheet', zasset("@ZikulaPLTheme:adminlte/plugins/iCheck/square/blue.css"))  }}" rel="stylesheet" type="text/css" />    
+{% endblock %} 
+{% block body %}
+    <body class="hold-transition login-page">
+    {% endblock %}
+    {% block content %}
+        {{ maincontent|raw }}
+    {% endblock %}
+    {% block footer %}
+        <script src="{{ pageAddAsset('javascript', zasset('@ZikulaPLTheme:adminlte/plugins/iCheck/icheck.min.js'), 98)  }}"></script>
+        <script>
+            (function ($) {
+                $(function () {
+                    $('input').iCheck({
+                        checkboxClass: 'icheckbox_square-blue',
+                        radioClass: 'iradio_square-blue',
+                        increaseArea: '20%' // optional
+                    });
+                });
+            })(jQuery);
+        </script>
+    {% endblock %}

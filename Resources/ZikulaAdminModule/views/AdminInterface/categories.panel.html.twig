@@ -1,0 +1,121 @@
+<!-- sidebar menu: : style can be found in sidebar.less -->
+{% macro draw(links) %}
+    {% for link in links %}   
+        {% if link.links is defined %}    
+            <li class="treeview"><a href="{{ link.url }}" title="{{ link.text }}"> <i class="{{ link.icon }}"> </i> {{ link.text }}</a>
+                <ul class="treeview-menu">{{ _self.draw(link.links) }}</ul>            
+            </li>                
+        {% else %}
+            <li><a href="{{ link.url }}" title="{{ link.text }}">{% if link.icon is defined %} <i class="{{ link.icon }}"> </i> {% endif %} {{ link.text }}</a>          
+            </li> 
+        {% endif %}    
+    {% endfor %}
+{% endmacro %}
+
+{% import _self as menu %}
+<ul class="navbar-custom-menu">
+    <li class="header">{{ __('ADMIN CATEGORIES') }}</li>
+        {% for category in adminMenu %} 
+        <li class="dropdown">
+            <a class="dropdown-toggle" href="{{ category.url }}" >
+                <i class="fa fa-angle-right"></i> <span>{{ category.title }}<span>  <i class="fa fa-angle-left pull-right"></i>
+                        </a>	
+                        {% if category.modules|length > 0 %}
+                            <ul class="dropdown-menu">
+                                {% for module in category.modules %} 
+                                    <li class="header">
+                                        <a href="{{ module.menutexturl }}" >
+                                            <img src="{{ module.icon }}" style="height:18px;"/> <span>{{ module.menutext }}</span> <i class="fa fa-angle-left pull-right"></i>
+                                        </a>	
+                                        {% if module.links|length > 0 %}
+                                            <ul class="menu">
+                                                {{ menu.draw(module.links) }}	
+                                            </ul>	
+                                        {% endif %}
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                        </li>	
+                    {% endfor %}   						
+                    </ul>
+
+                    <!-- Messages: style can be found in dropdown.less-->
+                    <!-- example-->
+                    {#<li class="dropdown messages-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-envelope-o"></i>
+                            <span class="label label-success">0</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="header">You have 4 messages</li>
+                            <li>
+                                <!-- inner menu: contains the actual data -->
+                                <ul class="menu">
+                                    <li><!-- start message -->
+                                        <a href="#">
+                                            <div class="pull-left">
+                                                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                            </div>
+                                            <h4>
+                                                Support Team
+                                                <small><i class="fa fa-clock-o"></i> 5 mins</small>
+                                            </h4>
+                                            <p>Why not buy a new awesome theme?</p>
+                                        </a>
+                                    </li>
+                                    <!-- end message -->
+                                    <li>
+                                        <a href="#">
+                                            <div class="pull-left">
+                                                <img src="dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
+                                            </div>
+                                            <h4>
+                                                KM Design Team
+                                                <small><i class="fa fa-clock-o"></i> 2 hours</small>
+                                            </h4>
+                                            <p>Why not buy a new awesome theme?</p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="pull-left">
+                                                <img src="dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
+                                            </div>
+                                            <h4>
+                                                Developers
+                                                <small><i class="fa fa-clock-o"></i> Today</small>
+                                            </h4>
+                                            <p>Why not buy a new awesome theme?</p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="pull-left">
+                                                <img src="dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
+                                            </div>
+                                            <h4>
+                                                Sales Department
+                                                <small><i class="fa fa-clock-o"></i> Yesterday</small>
+                                            </h4>
+                                            <p>Why not buy a new awesome theme?</p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="pull-left">
+                                                <img src="dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
+                                            </div>
+                                            <h4>
+                                                Reviewers
+                                                <small><i class="fa fa-clock-o"></i> 2 days</small>
+                                            </h4>
+                                            <p>Why not buy a new awesome theme?</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="footer"><a href="#">See All Messages</a></li>
+                        </ul>
+                    </li>
+                    #}

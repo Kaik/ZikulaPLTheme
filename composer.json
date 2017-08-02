@@ -1,7 +1,7 @@
 {
 	"name" : "zikula/pl-theme",
-	"version" : "1.0.0",
-	"description" : "PL Theme based on Zikula Bootstrap theme",
+	"version" : "2.0.0",
+	"description" : "PL Theme based on KaikmediaAdminLteTheme",
 	"type" : "zikula-theme",
 	"license" : "LGPL-3.0+",
 	"authors" : [{
@@ -14,12 +14,41 @@
 			"Zikula\\PLTheme\\" : ""
 		}
 	},
+
 	"require" : {
-		"php" : ">=5.4.1"
+		"php" : ">=5.4.1",
+                "select2/select2": "^4.0",
+                "almasaeed2010/adminlte" : ">=2.4.0"
 	},
+        
+        "repositories": [
+            {
+                "type": "package",
+                "package": {
+                    "name": "select2/select2",
+                    "version": "4.0.4",
+                "source": {
+                    "url": "https://github.com/select2/select2.git",
+                    "type": "git",
+                    "reference": "566c7846fbf8c3b7674346f26d0ee872c0a77629"
+                }
+                }
+            }
+        ],
+        
+        "scripts": {
+            "pltheme-scripts": [
+                "Zikula\\PLTheme\\Composer\\InstallAdminLteAssets::install"
+            ],
+            "post-autoload-dump": [
+                "@pltheme-scripts"
+            ]
+            
+        },
+        
 	"extra" : {
 		"zikula" : {
-			"core-compatibility" : ">=1.4.1",
+			"core-compatibility" : ">=2.0.0",
 			"class" : "Zikula\\PLTheme\\ZikulaPLTheme",
 			"displayname" : "PLTheme",
 			"capabilities" : {

@@ -1,0 +1,14 @@
+<!-- Main Content-->
+{{ maincontent|raw }}
+{% if currentUser.loggedIn %}
+    <div class="login-box">
+        <div class="login-logo">
+            <a href="#">{{ __('Zikula')}}<b>.com</b></a>
+        </div>
+        <a href="{{ path('zikulausersmodule_account_menu') }}" class="btn btn-block btn-primary btn-lg">{{ __('Go to your account') }}</a>
+    </div>
+{% else %}
+    <div class="login-logo">
+        <a href="#">{{ __('Zikula')}}<b>.com</b></a>
+    </div>
+{% endif %}

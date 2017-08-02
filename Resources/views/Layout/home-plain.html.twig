@@ -1,0 +1,14 @@
+{% extends 'ZikulaPLTheme:Base:base.html.twig' %}
+{% block head %}
+    <link href=" {{ pageAddAsset('stylesheet', zasset('@ZikulaPLTheme:css/plain.css'), 98) }}" rel="stylesheet" type="text/css" />
+    <link href=" {{ pageAddAsset('stylesheet', zasset('almasaeed2010/adminlte/dist/css/AdminLTE.min.css'), 98) }}" rel="stylesheet" type="text/css" />
+{% endblock %}
+{% block body %}
+    <body class="hold-transition plain-page">
+    {% endblock %}
+    {% block content %}
+        {{ parent() }}
+        {% include "ZikulaPLTheme:Body:" ~ themevars.home_body ~ ".html.twig" %}
+    {% endblock %}
+    {% block footer %}
+    {% endblock %}

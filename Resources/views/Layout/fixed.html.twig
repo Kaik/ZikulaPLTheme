@@ -1,0 +1,69 @@
+{% extends 'ZikulaPLTheme:Base:base.html.twig' %}
+{% block head %}
+    {{ parent() }}
+    <link href=" {{ pageAddAsset('stylesheet', zasset('almasaeed2010/adminlte/dist/css/AdminLTE.min.css'), 98) }}" rel="stylesheet" type="text/css" />
+{% endblock %} 
+{% block body %}
+    {{ parent() }}
+{% endblock %}
+{% block content %}
+    {{ parent() }}
+    <div class="wrapper">
+        <header class="main-header">
+            <!-- Logo -->
+            <a href="{{ pagevars.homepath }}" class="logo">
+                <!-- mini logo for sidebar mini 50x50 pixels -->
+                <span class="logo-mini"><img src="{{ zasset('@ZikulaPLTheme:images/sygnet.png') }}" width="40px" height="40px"/></span>
+                <!-- logo for regular state and mobile devices -->
+                <span class="logo-lg"><img src="{{ zasset('@ZikulaPLTheme:images/logo.png') }}" height="40px"/></span>
+            </a>
+            <!-- Header Navbar: style can be found in header.less -->
+            <nav class="navbar navbar-static-top" role="navigation">
+                <!-- Sidebar toggle button-->
+                <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                    <span class="sr-only">{{ __('Toggle navigation') }}</span>
+                </a>
+                {% block status_bar %} 
+                {% endblock %}
+            </nav>
+        </header>
+        {% block sidebar %}
+            <!-- Left side column. contains the logo and sidebar -->
+            <aside class="main-sidebar">
+                <!-- sidebar: style can be found in sidebar.less -->
+                <section class="sidebar">
+                    {% block sidebar_content %}
+                    {% endblock %}
+                </section>
+                <!-- /.sidebar -->
+            </aside>
+        {% endblock %}        
+    {% endblock %}
+    {% block footer %}
+        <footer class="main-footer">
+            <div class="pull-right hidden-xs">
+                <b>Version</b> 1.0.0
+            </div>
+        </footer>  
+        {% block control_sidebar %}
+            <!-- Control Sidebar -->
+            <aside class="control-sidebar control-sidebar-dark">
+                <!-- Create the tabs -->
+                {% block control_sidebar_content %}
+                {% endblock %}
+            </aside>
+            <!-- /.control-sidebar -->
+            <!-- Add the sidebar's background. This div must be placed
+            immediately after the control sidebar -->
+            <div class="control-sidebar-bg"></div>
+        {% endblock %}
+    </div>
+    {#    <script src="{{ pageAddAsset('javascript', zasset('almasaeed2010/adminlte/plugins/slimScroll/jquery.slimscroll.min.js'), 98)  }}"></script>#}
+    <!-- KM App -->
+    <script src="{{ pageAddAsset('javascript', zasset('almasaeed2010/adminlte/dist/js/adminlte.js'), 98)  }}"></script>
+    {#
+    <!-- KM dashboard demo (This is only for demo purposes) -->
+    <script src="{{ pageAddAsset('javascript', zasset('@ZikulaPLTheme:adminlte/dist/js/pages/dashboard.js'), 98)  }}"></script>
+    #}
+    {{ parent() }}
+{% endblock %}

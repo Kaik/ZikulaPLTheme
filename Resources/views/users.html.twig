@@ -1,0 +1,15 @@
+{% extends 'ZikulaPLTheme:Layout:plain-page.html.twig' %}
+{% block head %}
+    {{ parent() }}
+{% endblock %} 
+{% block body %}
+    <body class="hold-transition plain-page">
+    {% endblock %}
+    {% block content %}
+        <div class="col-md-5 col-centered">
+            {{ maincontent|raw }}
+        </div>
+    {% endblock %}
+    {% block footer %}
+        {{ parent() }}
+    {% endblock %}

@@ -1,0 +1,31 @@
+<!-- sidebar menu: : style can be found in sidebar.less -->
+{% macro draw(links) %}
+    {% for link in links %}   
+        {% if link.links is defined %}    
+            <li class="treeview"><a href="{{ link.url }}" title="{{ link.text }}"> <i class="{{ link.icon }}"> </i> {{ link.text }}</a>
+                <ul class="treeview-menu">{{ _self.draw(link.links) }}</ul>            
+            </li>                
+        {% else %}
+            <li><a href="{{ link.url }}" title="{{ link.text }}">{% if link.icon is defined %} <i class="{{ link.icon }}"> </i> {% endif %} {{ link.text }}</a>          
+            </li> 
+        {% endif %}    
+    {% endfor %}
+{% endmacro %}
+
+{% import _self as menu %}
+
+<ul class="sidebar-menu">
+    <li class="header">{{ __('MODULES') }}</li>
+        {% for module in adminMenu %} 
+        <li class="treeview">
+            <a href="{{ module.menutexturl }}" >
+                <img src="{{ module.icon }}" style="height:18px;"/> <span> {{ module.menutext }} </span><i class="fa fa-angle-left pull-right"></i>
+            </a>	
+            {% if module.links|length > 0 %}
+                <ul class="treeview-menu">
+                    {{ menu.draw(module.links) }}	
+                </ul>	
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>

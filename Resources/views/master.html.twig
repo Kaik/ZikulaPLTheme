@@ -1,4 +1,47 @@
-{% include 'ZikulaPLTheme:Include:header.html.twig' %}
-{% include 'ZikulaPLTheme:Include:main_menu.html.twig' %}
-{% include "ZikulaPLTheme:Body:" ~ themevars.master ~ ".html.twig" %}
-{% include 'ZikulaPLTheme:Include:footer.html.twig' %}
+{% extends "ZikulaPLTheme:Layout:" ~ themevars.master_layout ~ ".html.twig" %}
+{% block head %}
+    {{ parent() }}
+    <link href="{{ pageAddAsset('stylesheet', zasset("almasaeed2010/adminlte/dist/css/skins/#{themevars.master_skin}.min.css"), 98)  }}" rel="stylesheet" type="text/css" />
+{% endblock %}
+{% block body %}
+    <body class="hold-transition {{ themevars.master_skin }} {{ themevars.master_layout }} sidebar-mini">
+    {% endblock %}
+    {% block status_bar %}
+        <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+                {% include 'ZikulaPLTheme:StatusBar:messages.html.twig' %}
+                {% include 'ZikulaPLTheme:StatusBar:notifications.html.twig' %}
+                {% include 'ZikulaPLTheme:StatusBar:tasks.html.twig' %}
+                {% include 'ZikulaPLTheme:StatusBar:user.html.twig' %}
+                <!-- Control Sidebar Toggle Button -->
+                <li>
+                    <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+                </li>
+            </ul>
+        </div>
+        {{ parent() }}
+    {% endblock %}  
+    {% block sidebar_content %}
+        {% include 'ZikulaPLTheme:Sidebar:user.html.twig' %}
+        {% include 'ZikulaPLTheme:Sidebar:search.html.twig' %}
+    {% endblock %}
+    {% block sidebar %}
+        {{ parent() }} 
+    {% endblock %}
+    {% block content %}
+        {{ parent() }}
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Main content -->
+            <section class="content">
+                {% include "ZikulaPLTheme:Body:" ~ themevars.master_body ~ ".html.twig" %}
+                <!-- /.row (main row) -->
+            </section>
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+    {% endblock %}
+
+    {% block footer %}
+        {{ parent() }}
+    {% endblock %}

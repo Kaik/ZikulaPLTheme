@@ -1,0 +1,78 @@
+{% extends 'ZikulaPLTheme:Base:base.html.twig' %}
+{% block head %}
+    {{ parent() }}
+    <link href=" {{ pageAddAsset('stylesheet', zasset('almasaeed2010/adminlte/dist/css/AdminLTE.min.css'), 98) }}" rel="stylesheet" type="text/css" />
+    <link href=" {{ pageAddAsset('stylesheet', zasset('@ZikulaPLTheme:css/zikula-www.css'), 98) }}" rel="stylesheet" type="text/css" />
+    {#    {pageaddvar name="stylesheet" value="$stylepath/style.css"}
+        {pageaddvar name="stylesheet" value="$stylepath/style_home.css"}
+        {pageaddvar name="javascript" value="web/bootstrap-3-typeahead/bootstrap3-typeahead.js"}
+        {pageaddvar name="stylesheet" value="web/select2/select2.css"}
+        {pageaddvar name="stylesheet" value="web/select2/select2-bootstrap.css"}
+        {pageaddvar name="javascript" value="web/select2/select2.js"}
+        {pageaddvar name="javascript" value="web/tinymce/tinymce.min.js"}
+        {pageaddvar name="javascript" value="web/moment/moment.js"}
+        {pageaddvar name="javascript" value="@ZikulaPLTheme/Resources/public/js/PLTheme.Common.js"}
+        {pageaddvar name="javascript" value="@ZikulaPLTheme/Resources/public/js/PLTheme.Home.js"}
+        {pageaddvar name="stylesheet" value="@ZikulaPLTheme/Resources/public/css/fonts/Cambay/stylesheet.css"}
+        {pageaddvar name="stylesheet" value="@ZikulaPLTheme/Resources/public/css/fonts/Rajdhani/stylesheet.css"}   #}
+
+{% endblock %}
+{% block body %}
+
+{% endblock %}
+{% block content %}
+    {{ parent() }}
+
+    <div class="wrapper">
+        <header class="main-header">
+            <!-- Logo -->
+            <div class="navbar navbar-zikula">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="" href="{{ pagevars.homepath }}">
+                            <span class="logo-lg"><img src="{{ zasset('@ZikulaPLTheme:images/logo.png') }}" height="32px"/></span>
+                                {{ __('Zikula.org.pl') }}
+                        </a>
+                    </div>
+                    {{ showblockposition('topnav') }}
+                </div>
+            </div>
+        </header>
+
+        {% include "ZikulaPLTheme:Body:" ~ themevars.home_body ~ ".html.twig" %}
+        {#        {{ dump() }}#}
+    {% endblock %}
+    {% block footer %}
+        {#        <div id="footer" class="footer text-muted">
+                    <div class="container">
+                        <footer>
+                            <div class="col-md-12">
+                                <div class="col-md-4">
+                                </div>
+                                <div class="col-md-4">
+                                </div>
+                                <div class="address col-md-4 pull-right">
+                                    <div class="row">
+                                        <div class="col-md-7">
+                                            <p>{{ __('Copyright') }} &copy; <a href="http://zikula.org.pl" style="color:#eee;">{{ __('Zikula.org.pl') }} </a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </footer>
+                    </div>
+                </div>
+        #}
+    </div>
+    <!-- KM App -->
+    <script src="{{ pageAddAsset('javascript', zasset('almasaeed2010/adminlte/dist/js/adminlte.js'), 98)  }}"></script>
+    <script src="{{ pageAddAsset('javascript', zasset('@ZikulaPLTheme:js/home.www.js'), 98)  }}"></script>
+
+    {{ parent() }}
+
+{% endblock %}

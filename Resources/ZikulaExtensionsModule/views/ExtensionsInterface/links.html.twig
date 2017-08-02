@@ -1,0 +1,31 @@
+{% macro draw(links, menu_css, current_path) %}
+    {% for link in links %}
+        {% if link.links is defined %}
+            <li class="dropdown{% if menu_css.menuItemClass is not empty %} {{ menu_css.menuItemClass }}{% endif %}{% if current_path == link.url %} active{% endif %}">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" title="{{ link.title|default('') }}">
+                    {% if link.icon|default %}<i class="fa fa-{{ link.icon }}"> </i>{% endif %}
+                    {{ link.text }}
+                    <span class="caret"></span></a>
+                <ul id="submenu_{{ menu_css.menuId }}" class="dropdown-menu">
+                    {{ _self.draw(link.links, menu_css, current_path) }}
+                </ul>
+            </li>
+        {% else %}
+            <li class="{% if current_path == link.url %}active{% endif %} {% if menu_css.menuItemClass is not empty and current_path != link.url %}{{ menu_css.menuItemClass }}{% endif %}">
+                <a href="{{ link.url }}" title="{{ link.title|default('') }}"{% if link.id is defined %} id="{{ link.id }}"{% endif %}{% if link.class is defined %} class="{{ link.class }}"{% endif %}>{% if link.icon is defined %}<i
+                        class="fa fa-{{ link.icon }}"></i> {% endif %}{{ link.text }}</a>
+            </li>
+        {% endif %}
+    {% endfor %}
+{% endmacro %}
+
+{% import _self as menu %}
+
+{# hide links if the only one link is current one it looks stupid #}
+{% if not (links|length == 1 and links.0.url == current_path) %}
+<div class="navbar navbar-default navbar-modulelinks">
+    <ul{% if menu_css.menuId is not empty %} id="{{ menu_css.menuId }}"{% endif %}{% if menu_css.menuClass is not empty %} class="{{ menu_css.menuClass }}"{% endif %}>
+        {{ menu.draw(links, menu_css, current_path) }}
+    </ul>
+</div>
+{% endif %}

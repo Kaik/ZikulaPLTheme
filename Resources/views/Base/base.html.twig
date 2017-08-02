@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="{{ pagevars.lang }}" dir="{{ pagevars.langdirection }}">
+    <head>
+        <meta charset="{{ pagevars.meta.charset }}" />
+        <title>{{ pagevars.title }}</title>
+        <meta name="description" content="{{ pagevars.meta.description }}" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />        
+        {#            {% block title %}{{ pageSetVar('title', title|default('Base title')) }}{% endblock %}     #}
+        {% block head %}
+        {% endblock %}
+        {#  we want it to be the last ones to override some module styles      #}
+        <link href="{{ pageAddAsset('stylesheet', zasset("@ZikulaPLTheme:css/style.css"), 200)  }}" rel="stylesheet" type="text/css" />
+    </head>
+    {% block body %}
+        <body>
+        {% endblock %}
+        {% block content %}
+        {% endblock %}
+        {% block footer %}
+        {% endblock %}
+    </body>
+</html>

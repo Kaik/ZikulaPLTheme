@@ -1,0 +1,94 @@
+{% form_theme form with [
+'ZikulaFormExtensionBundle:Form:bootstrap_3_zikula_admin_layout.html.twig',
+'ZikulaFormExtensionBundle:Form:form_div_layout.html.twig',
+'ZikulaPLTheme:Form:checkbox.html.twig',
+] %}
+{{ polyfill() }}
+<div class="login-box">
+    <div class="login-logo">
+        <a href="#">Zikula<b>.org</b>.pl</a>
+    </div>
+    <!-- /.login-logo -->
+    <div class="login-box-body">
+        <p class="login-box-msg">{{ __('User login') }}</p>
+        {{ pageSetVar('title', __('User login')) }}
+        {{ form_start(form, {'action': path('zikulausersmodule_access_login'), 'method': 'POST'}) }}
+        {{ form_errors(form) }}
+        <div class="col-md-12">
+            <div class="form-group has-feedback">
+                {{ form_widget(form.uname, {
+            'input_group' : {'right': '<i class="fa fa-user fa-fw"></i>'},
+            'attr': {'class': "", 'placeholder': __('Username')}
+        }) }}
+            </div>
+            <div class="form-group has-feedback">
+                {{ form_widget(form.pass, {
+            'input_group' : {'right': '<i class="fa fa-key fa-fw"></i>'},
+            'attr': {'class': "", 'placeholder': __('Password')}
+        }) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-8">
+                {#   this is baaad :) but works #}
+                {{ form_widget(form.rememberme, {
+            'attr': {'class': 'col-md-3'}
+        }) }}
+                <label for="zikulazauthmodule_authentication_uname_rememberme">{{ __('Remember me') }}</label>
+            </div>
+            <!-- /.col -->
+            <div class="col-xs-4">
+                {{ form_widget(form.submit, { 'attr': {'class': "btn btn-primary btn-block btn-flat"}} ) }}
+            </div>
+            <!-- /.col -->
+        </div>
+        {# every login form must implement this event and hook call #}
+        {#        <div id="zikulausersmodule-login-event-display">
+                    {% set eventDatas = dispatchEvent(constant('Zikula\\UsersModule\\AccessEvents::LOGIN_FORM')) %}
+                    {% for eventData in eventDatas %}
+                        {{ eventData }}
+                    {% endfor %}
+                </div>#}
+        <div id="zikulausersmodule-login-hooks">
+            {% set hooks = notifyDisplayHooks(constant('Zikula\\UsersModule\\HookSubscriber\\LoginUiHooksSubscriber::LOGIN_FORM')) %}
+            {% for hook in hooks %}
+                {{ hook }}
+            {% endfor %}
+        </div>
+
+        <a href="{{ path('zikulazauthmodule_account_lostpassword') }}"> {{ __('I forgot my password') }}</a><br>
+        <a href="{{ path('zikulausersmodule_registration_register') }}" class="text-center">{{ __('Register a new membership') }}</a>
+        {{ form_end(form) }}
+    </div>
+    <!-- /.login-box-body -->
+</div>
+
+{#{% form_theme form with [
+'ZikulaFormExtensionBundle:Form:bootstrap_3_zikula_admin_layout.html.twig',
+'ZikulaFormExtensionBundle:Form:form_div_layout.html.twig',
+'ZikulaPLTheme:Form:checkbox.html.twig',
+] %}
+<h2>{{ __('User login') }}</h2>
+{{ pageSetVar('title', __('User login')) }}
+
+<div class="well">
+    {{ form_start(form) }}
+    {{ form_errors(form) }}
+    {{ form_row(form.uname) }}
+    {{ form_row(form.pass) }}
+    {{ form_row(form.rememberme) }}
+
+    {% for additional_template in additional_templates %}
+        {{ include(additional_template.0, additional_template.1, ignore_missing = true) }}
+    {% endfor %}
+    <div id="zikulausersmodule-login-hooks">
+        {% set hooks = notifyDisplayHooks(constant('Zikula\\UsersModule\\HookSubscriber\\LoginUiHooksSubscriber::LOGIN_FORM')) %}
+        {% for hook in hooks %}
+            {{ hook|raw }}
+        {% endfor %}
+    </div>
+
+    {{ form_row(form.submit) }}
+    {{ form_end(form) }}
+</div>
+#}

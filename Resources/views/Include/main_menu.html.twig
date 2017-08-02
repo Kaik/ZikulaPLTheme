@@ -1,4 +1,4 @@
-<div class="navbar navbar-default navbar-fixed-top">
+<div class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -6,17 +6,12 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="{{ pagevars.homepath }}">
-	      <!-- mini logo for sidebar mini 50x50 pixels -->
-	      <span class="show-xs hidden-sm hidden-md hidden-lg"><img id="logo" src="{{ zasset('@ZikulaPLTheme:images/zikulaorgpl-sygnet.png') }}" /></span>
-	      <!-- logo for regular state and mobile devices -->
-	      <span class="hidden-xs"><img id="logo" src="{{ zasset('@ZikulaPLTheme:images/zikulaorgpl-logo.png') }}" /> {{ getModVar('ZConfig', 'sitename') }}</span>                   
-          </a>
+          <a class="navbar-brand" href="{{ pagevars.homepath }}">{{ getModVar('ZConfig', 'sitename') }}</a>
         </div>
         <div class="navbar-collapse collapse">
         {% if pagetype == 'admin' %}
           <ul class="nav navbar-nav">
-            <li>{{ adminPanelMenu() }}</li>
+{#            <li>{{ adminPanelMenu() }}</li>#}
             <li><a href="{{ pagevars.homepath }}">{{ __('Home') }}</a></li>
             {% if hasPermission('ZikulaSettingsModule::', '::', 'ACCESS_ADMIN') %}
             <li><a href="{{ path('zikulasettingsmodule_admin_index') }}">{{ __('Settings') }}</a></li>
@@ -68,15 +63,6 @@
             <button type="submit" class="btn btn-success">Sign in</button>
           </form>
         {% endif %}
-        <!-- if user loged in -->
-        <ul class="nav navbar-nav pull-right"> 
-        {% if isloggedin() %}     
-		{% include 'ZikulaPLTheme:StatusBar:user.status_bar.html.twig' %}
-		{% else %}
-            <li><a href="{{ path('zikulausersmodule_user_login') }}" title="{{ __('Sign in') }}">{{ __('Sign in') }}</a></li>        
-        {% endif %}
-        </ul>
-
         </div><!--/.navbar-collapse -->
       </div>
     </div>

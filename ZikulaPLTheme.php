@@ -2,7 +2,7 @@
 
 namespace Zikula\PLTheme;
 
-use Zikula\Core\AbstractTheme;
+use Zikula\ThemeModule\AbstractTheme;
 
 class ZikulaPLTheme extends AbstractTheme
 {
